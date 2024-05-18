@@ -1,5 +1,5 @@
 import re
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from openai import OpenAI
 import os
@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend")
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Obter a chave da API do OpenAI a partir das variáveis de ambiente
@@ -20,6 +20,14 @@ client = OpenAI(api_key=api_key)
 
 # ID do Assistant criado
 ASSISTANT_ID = "asst_GMDQKxYlCiUhHbtNU4X2D0pO"
+
+@app.route('/')
+def serve_frontend():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    return send_from_directory(app.static_folder, path)
 
 @app.route('/chat', methods=['POST'])
 def chat():
