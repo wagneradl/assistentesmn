@@ -1,0 +1,187 @@
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, #3a80ba, #325d93, #1e3a65, #4a90e2);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 600px;
+    height: 70vh;
+    background-color: #32325d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Para o degradê funcionar */
+    border-color: #5ff364;
+    ;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+    /* border-bottom: 1px solid #5ff364; */
+    position: relative; /* Para o degradê funcionar */
+}
+
+.chat-message {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    text-align: right;
+    color: #5ff364;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.bot-message {
+    text-align: left;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 30px;
+    /* border-top: 1px solid #5ff364; */
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    height: 20px;
+    outline: none;
+    font-size: 15px;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5ff364;
+    font-weight: 600;
+    color: #32325d;
+    border-radius: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative; /* Para a animação funcionar */
+    margin-left: 20px;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+.chat-input button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Adicionar degradê sutil no topo da caixa de mensagens */
+.chat-messages::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px; /* Aumentar a altura do degradê para suavizá-lo ainda mais */
+    background: linear-gradient(to bottom, rgba(50, 50, 93, 0.3), rgba(50, 50, 93, 0));
+    pointer-events: none; /* Garantir que o degradê não interfira nas interações */
+}
+
+.error-message {
+    text-align: left;
+    color: red;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.loading-animation {
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.dot-carousel {
+    display: inline-block;
+    position: relative;
+    left: 0; /* Ajuste a posição relativa para alinhar à direita */
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 10px 0 0 0 #9880ff, 25px 0 0 0 #9880ff, 40px 0 0 0 #9880ff; /* Ajustado para 10px, 25px e 40px */
+    animation: dot-carousel 1.5s infinite linear;
+}
+
+@keyframes dot-carousel {
+    0% {
+        box-shadow: 10px 0 0 -1px #9880ff, 25px 0 0 1px #9880ff, 40px 0 0 -1px #9880ff;
+    }
+    50% {
+        box-shadow: 40px 0 0 -1px #9880ff, 10px 0 0 -1px #9880ff, 25px 0 0 1px #9880ff;
+    }
+    100% {
+        box-shadow: 25px 0 0 1px #9880ff, 40px 0 0 -1px #9880ff, 10px 0 0 -1px #9880ff;
+    }
+}
+
+/* Estilo da animação dos pontos */
+.dot-carousel {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+    animation: dot-carousel 1.5s infinite linear;
+}
+
+@keyframes dot-carousel {
+    0% {
+        box-shadow: 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff;
+    }
+    50% {
+        box-shadow: 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff;
+    }
+    100% {
+        box-shadow: 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff;
+    }
+}
