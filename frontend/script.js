@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", function() {
     const messageInput = document.getElementById("message-input");
     const sendButton = document.getElementById("send-button");
@@ -10,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         messageElement.classList.add("chat-message");
         messageElement.classList.add(sender);
         try {
-            // Converter Markdown para HTML
+            // Converter Markdown para HTML usando marked.js
             messageElement.innerHTML = marked.parse(message);
         } catch (error) {
             console.error('Erro ao processar Markdown:', error);
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Enviar a mensagem ao backend
         try {
-            const response = await fetch('/chat', {
+            const response = await fetch('http://127.0.0.1:5000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -98,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sendMessage();
         }
     });
-     // Desativar autocomplete no input
-     messageInput.setAttribute("autocomplete", "off");
+
+    // Desativar autocomplete no input
+    messageInput.setAttribute("autocomplete", "off");
 });
