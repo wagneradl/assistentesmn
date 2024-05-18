@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener("DOMContentLoaded", function() {
     const messageInput = document.getElementById("message-input");
     const sendButton = document.getElementById("send-button");
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Enviar a mensagem ao backend
         try {
-            const response = await fetch('http://127.0.0.1:5000/chat', {
+            const response = await fetch('/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
