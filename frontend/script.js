@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         messageElement.classList.add("chat-message");
         messageElement.classList.add(sender);
         try {
-            // Converter Markdown para HTML usando marked.js
+            // Converter Markdown para HTML
             messageElement.innerHTML = marked.parse(message);
         } catch (error) {
             console.error('Erro ao processar Markdown:', error);
@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
             sendMessage();
         }
     });
-
-    // Desativar autocomplete no input
-    messageInput.setAttribute("autocomplete", "off");
+     // Desativar autocomplete no input
+     messageInput.setAttribute("autocomplete", "off");
 });

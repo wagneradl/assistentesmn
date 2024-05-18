@@ -18,6 +18,14 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
+# Verificação da chave da API
+# try:
+    # Tentar fazer uma chamada simples à API para verificar se a chave está correta
+#     response = client.models.list()
+#     print("API Key carregada e verificada com sucesso!")
+# except Exception as e:
+#     print(f"Erro ao verificar a API Key: {e}")
+
 # ID do Assistant criado
 ASSISTANT_ID = "asst_GMDQKxYlCiUhHbtNU4X2D0pO"
 
