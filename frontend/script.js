@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Adicionar evento ao botão de enviar
     sendButton.addEventListener("click", sendMessage);
+    sendButton.addEventListener("touchend", sendMessage);
 
     // Permitir envio com a tecla Enter
     messageInput.addEventListener("keypress", function(event) {
